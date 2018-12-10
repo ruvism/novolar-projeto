@@ -26,6 +26,6 @@ let AdocaoSchema = new Schema({
 //     return this._id;
 // })
 
-let adocoes = mongoose.model("adocao", AdocaoSchema);
 
-module.exports = adocoes;
+
+module.exports = mongoose.model("adocao", AdocaoSchema);

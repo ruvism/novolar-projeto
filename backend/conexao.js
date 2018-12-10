@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-const server = '127.0.0.1:27017'; // REPLACE WITH YOUR DB SERVER
+const server = 'ds039768.mlab.com:39768'; // REPLACE WITH YOUR DB SERVER
 const database = 'adocoesdb';      // REPLACE WITH YOUR DB NAME
 require('mongodb')
 
@@ -8,7 +8,7 @@ class Database {
     this._connect()
   }
 _connect() {
-     mongoose.connect(`mongodb://${server}/${database}`)
+     mongoose.connect(`mongodb://ruvism:1108ruvila@${server}/${database}`)
        .then(() => {
          console.log('Database connection successful')
        })

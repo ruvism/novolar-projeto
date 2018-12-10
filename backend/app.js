@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 //const data = require('./data');
 const adocaoModel = require('./model');
-require('mongoose')
+const mongoose = require('mongoose')
 require('./conexao')
 
 const allowCrossDomain = function (req, res, next) {
@@ -22,9 +22,9 @@ app.use(express.json());
 
 app.post('/api/doar', function (req, res) { //console.log(req)
   const adicionarAnimais = req.body
-  //console.log(adicionarAnimais)
-  let model = new adocaoModel(adicionarAnimais)
-  model.save()
+  console.log(adicionarAnimais)
+ let model = new adocaoModel(adicionarAnimais)
+  model.save(adicionarAnimais)
   //  .then(doc => {
   //    console.log(doc)
   //  })
@@ -35,8 +35,14 @@ app.post('/api/doar', function (req, res) { //console.log(req)
 });
 
 app.get('/api/index', function (req, res) {
+  let adocao = mongoose.model("adocao", adocaoModel.schema)
+  adocao.find({}, function (err, docs) {
+  res.send(docs);
+  console.log(docs)
+  });
+
   // mongoose.model('adocoes').find(function(err, adocoes){
-   res.send();
+  // console.log(adocoes)
   // })
 });
 
