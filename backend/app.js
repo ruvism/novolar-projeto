@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-//const data = require('./data');
 const adocaoModel = require('./model');
 const mongoose = require('mongoose')
 require('./conexao')
@@ -40,10 +39,6 @@ app.get('/api/index', function (req, res) {
   res.send(docs);
   console.log(docs)
   });
-
-  // mongoose.model('adocoes').find(function(err, adocoes){
-  // console.log(adocoes)
-  // })
 });
 
 app.listen(3000, function () {

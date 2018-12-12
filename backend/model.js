@@ -8,24 +8,10 @@ let AdocaoSchema = new Schema({
         _id: {type: mongoose.Schema.Types.ObjectId, auto: true},
         name: { type: String},
         description: { type: String},
-        images: { type: String },
-        contact: {  
-            email: { type: String},
-            telefone: { type: String}
-
-                }
+        images: { type: String },  
+        email: { type: String},
+        telefone: { type: String}
             }
-    //     },
-    // {
-    //     colletion: "adocoesdb",
-    //     versionKey: false,
-    //     toObject: { virtuals: true}
     });
-
-// AdocaoSchema.virtual("id").get(function(){
-//     return this._id;
-// })
-
-
 
 module.exports = mongoose.model("adocao", AdocaoSchema);

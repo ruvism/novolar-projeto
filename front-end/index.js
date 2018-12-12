@@ -1,5 +1,4 @@
 window.onload = function () {
-  //alert("carregou");
   showAnimais();
 };
 
@@ -29,13 +28,11 @@ function adicionarAnimal() {
       "name": document.getElementById("novo-animal").value,
       "description": document.getElementById("descricao").value,
       "images": [document.getElementById("imagem").value],
-      "contact": {
-        "email": document.getElementById("contato-email").value,
-        "telefone": document.getElementById("contato-telefone").value,
-      }
+      "email": document.getElementById("contato-email").value,
+      "telefone": document.getElementById("contato-telefone").value
     }
   };
-  console.log(novaAdocao)
+  // console.log(novaAdocao)
 
   axios.post('http://127.0.0.1:3000/api/doar', novaAdocao)
     .then(function (response) {
@@ -46,23 +43,25 @@ function adicionarAnimal() {
     });
 }
 
-// data["items"].push(novaAdocao);
-// console.log(data)
-// showAnimais();
-// });
-//}
-
-
+// function limparFormulario() {
+//   let novaAdocao = {
+//     "animal": {
+//       "name": '',
+//       "description": '',
+//       "images": '',
+//       "email": '',
+//       "telefone": ''
+//     }
+//   }
+// }
 
 function showAnimais() {
   let animaisDiv = document.getElementById("animais");
-  //var div = '';
-  // animaisDiv.innerHTML = `
   getAnimais().then((animais) => {
     animais.data.map(animal => {
-      animaisDiv.append(  
+      animaisDiv.innerHTML +=
         ` <div class="animal">
-          <img src="${animal["animal"]["images"][0]}" class="animal-img" />
+          <img src="${animal["animal"]["images"]}" class="animal-img" />
           <div class="text-name">
           <h4 class="animal-name">${animal["animal"]["name"]}</h4>
           </div>
@@ -70,19 +69,12 @@ function showAnimais() {
           <p class="animal-name">${animal["animal"]["description"]}</p>
           </div>
           <div class="animal-contact">        
-          <p class="animal-contact">${animal["animal"]["contact"]["email"]}</p>    
-          <p class="animal-contact">${animal["animal"]["contact"]["telefone"]}</p>
+          <p class="animal-contact">${animal["animal"]["email"]}</p>    
+          <p class="animal-contact">${animal["animal"]["telefone"]}</p>
           </div>
           </div>
           `
-
-      )
-        })
-      })
-    }
-
-
-
-  //   })
-  // }
+    })
+  })
+}
 
