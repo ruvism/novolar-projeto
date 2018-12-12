@@ -8,7 +8,6 @@ function getAnimais() {
       return response;
     })
     .catch(function (error) {
-      // handle error
       console.log("Tente novamente");
     })
 }
@@ -20,7 +19,6 @@ enviarAnimal.addEventListener('submit', function (event) {
   adicionarAnimal()
   alert("Animal cadastrado com sucesso")
   enviarAnimal.reset()
-
 })
 
 function adicionarAnimal() {
