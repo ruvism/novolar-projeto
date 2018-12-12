@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const adocaoModel = require('./model');
 const mongoose = require('mongoose')
+const path = require('path')
 require('./conexao')
 
 const allowCrossDomain = function (req, res, next) {
@@ -15,7 +16,7 @@ const allowCrossDomain = function (req, res, next) {
     next();
   }
 };
-
+app.use(express.static(path.join(__dirname, 'front-end')));
 app.use(allowCrossDomain);
 app.use(express.json());
 
