@@ -1,7 +1,9 @@
-let mongoose = require('mongoose');
-const server = process.env.db || 'localhost'; // REPLACE WITH YOUR DB SERVER
-const database = 'adocoesdb';      // REPLACE WITH YOUR DB NAME
 require('mongodb')
+require('dotenv').config()
+let mongoose = require('mongoose');
+const server = process.env.db || 'localhost'; 
+console.log(process.env.db)   // REPLACE WITH YOUR DB SERVER
+const database = 'adocoesdb';      // REPLACE WITH YOUR DB NAME
 
 class Database {
   constructor() {
