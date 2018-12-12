@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const adocaoModel = require('./model');
 const mongoose = require('mongoose')
-const path = require('path')
+//const path = require('path')
 require('./conexao')
 
 const allowCrossDomain = function (req, res, next) {
@@ -16,21 +16,15 @@ const allowCrossDomain = function (req, res, next) {
     next();
   }
 };
-app.use(express.static(path.join(__dirname, 'front-end')));
+app.use(express.static(__dirname+'/frontend'))
 app.use(allowCrossDomain);
 app.use(express.json());
 
-app.post('/api/doar', function (req, res) { //console.log(req)
+app.post('/api/doar', function (req, res) { 
   const adicionarAnimais = req.body
   console.log(adicionarAnimais)
  let model = new adocaoModel(adicionarAnimais)
   model.save(adicionarAnimais)
-  //  .then(doc => {
-  //    console.log(doc)
-  //  })
-  //  .catch(err => {
-  //    console.error(err)
-  //  })
   res.send();
 });
 
