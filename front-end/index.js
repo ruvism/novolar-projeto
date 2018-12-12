@@ -3,7 +3,7 @@ window.onload = function () {
 };
 
 function getAnimais() {
-  return axios.get('/api/index')
+  return axios.get('http://localhost:3000/api/index')
     .then(function (response) {
       return response;
     })
@@ -33,7 +33,7 @@ function adicionarAnimal() {
   }
   
 
-  axios.post('/api/doar', novaAdocao)
+  axios.post('http://localhost:3000/api/doar', novaAdocao)
     .then(function (response) {
       console.log(response);
     })
