@@ -25,23 +25,24 @@
     </header>
 
     <main>
-        <section>
-            <h1>Vai doar seu animal? Confira as regras:</h1>
-            <p>- O animal deve estar bem de saúde;</br>
-            - Quando o animal for doado entre em contato com nossa equipe para a retirada do anúncio dele no site; </br>
-            - A adoção deve ser combinada entre adotante e doador;
+        <section class="regras">
+            <h1>Vai doar seu animal? <br> Confira as regras:</h1>
+            <p>- O animal deve estar bem de saúde.<br>
+            - Quando o animal for doado entre em contato com nossa equipe para a retirada do anúncio dele no site. <br>
+            - Todos os detalhes da adoção devem ser combinada entre adotante e doador. <br>
+            - Comércio de animais é PROIBIDO neste site. <br> Se alguém tentar vender um animal de estimação para você por meio deste site denuncie imediatamente no e-mail novolar@gmail.com.
             </p>
         </section>
         <section>
-            <center> <form id="formulario" class="formulario" >
+             <form id="formulario" class="formulario" >
                 <h2>Cadastre seu animal aqui:</h2>
-                <input type="text" id="novo-animal" placeholder="Novo animal"><br>
-                <input type="text" id="descricao" placeholder="Descrição"><br>
-                <input type="text" id="contato-email" placeholder="E-mail"><br>
-                <input type="number" id="contato-telefone" placeholder="Telefone"><br>
-                <input type="url" id="imagem" placeholder="Link da imagem"><br>
-                <input type="submit" id="botao-enviar" placeholder="Enviar">
-            </form></center>
+                <input type="text" id="novo-animal" placeholder="Novo animal" required><br>
+                <input type="text" id="descricao" placeholder="Descrição" required><br>
+                <input type="email" id="contato-email" placeholder="E-mail" required><br>
+                <input type="tel" id="contato-telefone" placeholder="Telefone" required><br>
+                <input type="url" id="imagem" placeholder="Link da imagem" required><br>
+                <button type="submit" id="botao-enviar">Enviar</button>
+            </form>
     </main>
 
     <footer class="footer">

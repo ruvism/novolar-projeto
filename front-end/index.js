@@ -14,15 +14,16 @@ function getAnimais() {
 }
 
 let enviarAnimal
-  = document.getElementById("botao-enviar");
-enviarAnimal.addEventListener('click', function (event) {
+  = document.getElementById("formulario");
+enviarAnimal.addEventListener('submit', function (event) {
   event.preventDefault();
   adicionarAnimal()
+  alert("Animal cadastrado com sucesso")
+  enviarAnimal.reset()
+
 })
 
 function adicionarAnimal() {
-
-
   let novaAdocao = {
     "animal": {
       "name": document.getElementById("novo-animal").value,
@@ -31,8 +32,8 @@ function adicionarAnimal() {
       "email": document.getElementById("contato-email").value,
       "telefone": document.getElementById("contato-telefone").value
     }
-  };
-  // console.log(novaAdocao)
+  }
+  
 
   axios.post('http://127.0.0.1:3000/api/doar', novaAdocao)
     .then(function (response) {
@@ -40,20 +41,8 @@ function adicionarAnimal() {
     })
     .catch(function (error) {
       console.log("Tente novamente");
-    });
+    })
 }
-
-// function limparFormulario() {
-//   let novaAdocao = {
-//     "animal": {
-//       "name": '',
-//       "description": '',
-//       "images": '',
-//       "email": '',
-//       "telefone": ''
-//     }
-//   }
-// }
 
 function showAnimais() {
   let animaisDiv = document.getElementById("animais");
