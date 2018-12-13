@@ -2,40 +2,12 @@ window.onload = function () {
   showAnimais();
 };
 
+const url = 'https://novolar.netlify.com/'
+
 function getAnimais() {
-  return axios.get('http://localhost:3000/api/index')
+  return axios.get(`${url}api/index`)
     .then(function (response) {
       return response;
-    })
-    .catch(function (error) {
-      console.log("Tente novamente");
-    })
-}
-
-let enviarAnimal
-  = document.getElementById("formulario");
-enviarAnimal.addEventListener('submit', function (event) {
-  event.preventDefault();
-  adicionarAnimal()
-  alert("Animal cadastrado com sucesso")
-  enviarAnimal.reset()
-})
-
-function adicionarAnimal() {
-  let novaAdocao = {
-    "animal": {
-      "name": document.getElementById("novo-animal").value,
-      "description": document.getElementById("descricao").value,
-      "images": [document.getElementById("imagem").value],
-      "email": document.getElementById("contato-email").value,
-      "telefone": document.getElementById("contato-telefone").value
-    }
-  }
-  
-
-  axios.post('http://localhost:3000/api/doar', novaAdocao)
-    .then(function (response) {
-      console.log(response);
     })
     .catch(function (error) {
       console.log("Tente novamente");
