@@ -16,17 +16,21 @@ const allowCrossDomain = function (req, res, next) {
     next();
   }
 };
-app.use(express.static(__dirname+'/frontend'))
+app.use(express.static('front-end/'))
 app.use(allowCrossDomain);
 app.use(express.json());
 
 app.post('/api/doar', function (req, res) { 
   const adicionarAnimais = req.body
   console.log(adicionarAnimais)
- let model = new adocaoModel(adicionarAnimais)
+  let model = new adocaoModel(adicionarAnimais)
   model.save(adicionarAnimais)
   res.send();
 });
+
+app.get("*", (req, res)=> {
+    res.sendFile(path.resolve('front-end/'))
+})
 
 app.get('/api/index', function (req, res) {
   let adocao = mongoose.model("adocao", adocaoModel.schema)
