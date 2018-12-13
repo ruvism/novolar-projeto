@@ -2,10 +2,10 @@ window.onload = function () {
   showAnimais();
 };
 
-const url = 'https://novolar.herokuapp.com/'
+const url = 'https://novolar.herokuapp.com'
 
 function getAnimais() {
-  return axios.get(`${url}api/index`)
+  return axios.get(`${url}/api/index`)
     .then(function (response) {
       return response;
     })

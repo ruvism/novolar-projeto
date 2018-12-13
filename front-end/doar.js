@@ -18,7 +18,7 @@ function adicionarAnimal() {
     }
   }
   
-  const url = 'https://novolar.herokuapp.com/'
+  const url = 'https://novolar.herokuapp.com'
 
 
   axios.post(`${url}/api/doar`, novaAdocao)
