@@ -2,7 +2,7 @@ window.onload = function () {
   showAnimais();
 };
 
-const url = 'https://novolar.netlify.com/'
+const url = 'https://novolar.herokuapp.com/'
 
 function getAnimais() {
   return axios.get(`${url}api/index`)
