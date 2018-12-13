@@ -17,6 +17,7 @@ function getAnimais() {
 function showAnimais() {
   let animaisDiv = document.getElementById("animais");
   getAnimais().then((animais) => {
+    console.log(animais)
     animais.data.map(animal => {
       animaisDiv.innerHTML +=
         ` <div class="animal">

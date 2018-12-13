@@ -28,7 +28,7 @@ app.post('/api/doar', function (req, res) {
   res.send();
 });
 
-app.get("*", (req, res)=> {
+app.get("/web", (req, res)=> {
     res.sendFile(path.resolve('front-end/'))
 })
 
